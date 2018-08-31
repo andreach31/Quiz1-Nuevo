@@ -7,6 +7,9 @@ package Interfaz;
 
 import Modelo.Persona;
 import Control.Control;
+import static java.awt.SystemColor.control;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -19,16 +22,15 @@ public class Interfaz extends javax.swing.JFrame {
     /**
      * Creates new form Interfaz
      */
+    
+    Control control = new Control();
+    
     public Interfaz() {
         initComponents();
         this.setLocationRelativeTo(null); //Tirar el formulario en el centro
        
     }
     
-    
-    
-    
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -87,6 +89,11 @@ public class Interfaz extends javax.swing.JFrame {
         });
 
         btn_Insertar.setText("Insertar");
+        btn_Insertar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_InsertarMouseClicked(evt);
+            }
+        });
         btn_Insertar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_InsertarActionPerformed(evt);
@@ -135,11 +142,10 @@ public class Interfaz extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(txt_telefono, javax.swing.GroupLayout.DEFAULT_SIZE, 295, Short.MAX_VALUE)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txt_Id, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 295, Short.MAX_VALUE)
-                                .addComponent(txt_Nombre, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(txt_direccion)
-                                .addComponent(txt_Apellido)))
+                            .addComponent(txt_Id, javax.swing.GroupLayout.DEFAULT_SIZE, 295, Short.MAX_VALUE)
+                            .addComponent(txt_Nombre)
+                            .addComponent(txt_direccion, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txt_Apellido, javax.swing.GroupLayout.Alignment.LEADING))
                         .addGap(38, 38, 38))))
         );
         jPanel2Layout.setVerticalGroup(
@@ -207,6 +213,15 @@ public class Interfaz extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btn_InsertarActionPerformed
 
+    private void btn_InsertarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_InsertarMouseClicked
+
+        Persona p = new Persona(txt_Id.getText(),txt_Nombre.getText(),txt_Apellido.getText(),txt_telefono.getText(),txt_direccion.getText()); 	             
+        System.out.print(control.agregarPersona(p));	             
+        control.imprimeLista();
+        
+
+    }//GEN-LAST:event_btn_InsertarMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -241,9 +256,13 @@ public class Interfaz extends javax.swing.JFrame {
                 
         
             }
+            
+            
         });
     }
 
+
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_Consultar;
     private javax.swing.JButton btn_Eliminar;
@@ -264,8 +283,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JTextField txt_telefono;
     // End of variables declaration//GEN-END:variables
 
-}
   
-   
+}
 
 

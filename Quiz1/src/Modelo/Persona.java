@@ -12,87 +12,65 @@ import java.util.ArrayList;
  * @author andreachacon
  */
 public class Persona {
-
+    
+     String identificacion;
     String Nombre;
-    String PrimerApellido;
-    String SegundoApellido;
-    int Edad;
-    String Nacionalidad;
-    String Telefono;
-    String Correo;
-    Persona p = new Persona();   
-    public ArrayList<Persona> predecesor = new ArrayList<Persona>();
-    
-    
-    public Persona(String Nombre, String PrimerApellido, String SegundoApellido, int Edad, String Nacionalidad, String Telefono, String Correo) {
+    String Apellido;
+    String telefono;
+    String Direccion;
+
+    public Persona(String identificacion, String Nombre, String Apellido, String telefono, String Direccion) {
+        this.identificacion = identificacion;
         this.Nombre = Nombre;
-        this.PrimerApellido = PrimerApellido;
-        this.SegundoApellido = SegundoApellido;
-        this.Edad = Edad;
-        this.Nacionalidad = Nacionalidad;
-        this.Telefono = Telefono;
-        this.Correo = Correo;
+        this.Apellido = Apellido;
+        this.telefono = telefono;
+        this.Direccion = Direccion;
     }
 
-    public Persona() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String getIdentificacion() {
+        return identificacion;
+    }
+
+    public void setIdentificacion(String identificacion) {
+        this.identificacion = identificacion;
     }
 
     public String getNombre() {
         return Nombre;
     }
 
-    public String getPrimerApellido() {
-        return PrimerApellido;
-    }
-
-    public String getSegundoApellido() {
-        return SegundoApellido;
-    }
-
-    public int getEdad() {
-        return Edad;
-    }
-
-    public String getNacionalidad() {
-        return Nacionalidad;
-    }
-
-    public String getTelefono() {
-        return Telefono;
-    }
-
-    public String getCorreo() {
-        return Correo;
-    }
-
     public void setNombre(String Nombre) {
         this.Nombre = Nombre;
     }
 
-    public void setPrimerApellido(String PrimerApellido) {
-        this.PrimerApellido = PrimerApellido;
+    public String getApellido() {
+        return Apellido;
     }
 
-    public void setSegundoApellido(String SegundoApellido) {
-        this.SegundoApellido = SegundoApellido;
+    public void setApellido(String Apellido) {
+        this.Apellido = Apellido;
     }
 
-    public void setEdad(int Edad) {
-        this.Edad = Edad;
+    public String getTelefono() {
+        return telefono;
     }
 
-    public void setNacionalidad(String Nacionalidad) {
-        this.Nacionalidad = Nacionalidad;
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 
-    public void setTelefono(String Telefono) {
-        this.Telefono = Telefono;
+    public String getDireccion() {
+        return Direccion;
     }
 
-    public void setCorreo(String Correo) {
-        this.Correo = Correo;
+    public void setDireccion(String Direccion) {
+        this.Direccion = Direccion;
     }
+
+   
+
+    
+    
     
     
     
